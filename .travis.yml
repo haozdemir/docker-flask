@@ -4,4 +4,4 @@ before_install:
 - docker pull python:3.8-slim-buster
 script:
 - docker build --tag python-docker .
-- docker image push --all-tags
+- docker push airtiesitba/python-docker
