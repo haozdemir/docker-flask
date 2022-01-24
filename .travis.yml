@@ -3,5 +3,5 @@ before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker pull python:3.8-slim-buster
 script:
-- docker build --tag python-docker .
-- docker push python-docker
+- docker build --tag airtiesitba/python-docker .
+- docker push airtiesitba/python-docker
