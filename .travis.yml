@@ -4,7 +4,7 @@ before_install:
 - docker pull python:3.8-slim-buster
 - version="$(awk '$2 == "FLASK_APP_VERSION" { print $3; exit }' Dockerfile)"
 script:
-- docker build --tag airtiesitba/python-docker .
+- docker build --tag airtiesitba/python-docker --tag airtiesitba/python-docker:${version}.$TRAVIS_BUILD_NUMBER .
 - docker push airtiesitba/python-docker
 - docker push "airtiesitba/python-docker:latest" && docker push "airtiesitba/python-docker:${version}.$TRAVIS_BUILD_NUMBER"
 
