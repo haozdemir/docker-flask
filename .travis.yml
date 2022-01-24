@@ -2,6 +2,9 @@ language: python
 before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker pull python:3.8-slim-buster
+- version="$(awk '$2 == "FLASK_APP_VERSION" { print $3; exit }' Dockerfile)"
 script:
 - docker build --tag airtiesitba/python-docker .
 - docker push airtiesitba/python-docker
+- docker push "airtiesitba/python-docker:latest" && docker push "airtiesitba/python-docker:${version}.$TRAVIS_BUILD_NUMBER"
+

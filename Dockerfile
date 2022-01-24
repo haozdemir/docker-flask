@@ -2,6 +2,8 @@
 
 FROM python:3.8-slim-buster
 
+ENV FLASK_APP_VERSION 0.1.0
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
